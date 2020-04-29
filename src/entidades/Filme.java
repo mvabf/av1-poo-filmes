@@ -45,17 +45,23 @@ public class Filme {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 	@Override
 	public String toString() {
-		return titulo
+		return "Título: "
+				+ titulo
 				+ ", "
+				+ "Ano de Lançamento: "
 				+ anoLancamento
 				+ ", "
+				+ "Gênero: "
 				+ genero
 				+ ", "
+				+ "Descrição: "
 				+ descricao;
 	}
+	
+
 	
 	
 }
