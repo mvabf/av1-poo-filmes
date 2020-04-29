@@ -68,6 +68,32 @@ public class Programa {
 				break;
 			// editar dados sobre o filme	
 			case 3:
+				System.out.println("Insira o nome do filme qual deseja editar: ");
+				String nomeEditar = in.next();
+				Filme filme = filmes.stream().filter(x -> nomeEditar.equals(x.getTitulo())).findAny().orElse(null);
+				
+				if(filme == null) {
+					System.out.println("Filme Não existe!");
+				} else {
+					System.out.println(filme);
+				}
+				
+				System.out.println("Insira Novos valores: ");
+				System.out.println("Insira Título do Filme: ");
+				in.nextLine();
+				String titulo2 = in.nextLine();
+				System.out.println("Insira ano de lançamento: ");
+				int anoLancamento2 = in.nextInt();
+				in.nextLine();
+				System.out.println("Insira Gênero do filme: ");
+				String genero2 = in.nextLine();
+				System.out.println("Insira a descrição do filme: ");
+				String descricao2 = in.nextLine();
+				
+				filme.setTitulo(titulo2);
+				filme.setAnoLancamento(anoLancamento2);
+				filme.setGenero(genero2);
+				filme.setDescricao(descricao2);
 				
 				break;
 			// deletar filme
@@ -80,6 +106,9 @@ public class Programa {
 			System.out.println("Deseja Continuar? (s/n)");
 			escolha = in.next().charAt(0);
 	}
+		
+		System.out.println("Obrigado por usar este Software!");
+		System.out.println("Por Marcus Venicius Baltazar.");
 		in.close();
 
 	}
