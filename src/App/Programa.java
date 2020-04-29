@@ -23,6 +23,7 @@ public class Programa {
 		System.out.println("L I S T A DE F I L M E S");
 		System.out.println("--------------------------------");
 		
+		// loop para escolha do usuário
 		while(escolha == 's') {
 			System.out.println("Digite: ");
 			System.out.println("1 - Cadastrar Filme");
@@ -51,10 +52,11 @@ public class Programa {
 				filmes.add(new Filme(titulo, anoLancamento, genero, descricao));
 				
 				break;
-				
+			// procurar filme
 			case 2:
 				System.out.println("Insira o nome do filme qual deseja buscar: ");
 				String nome = in.next();
+				// expressão lambda para filtrar e achar o filme escolhido pelo usuário salvando e mostrando o objeto
 				Filme f = filmes.stream().filter(x -> nome.equals(x.getTitulo())).findAny().orElse(null);
 				
 				if(f == null) {
@@ -64,8 +66,17 @@ public class Programa {
 				}
 				
 				break;
+			// editar dados sobre o filme	
+			case 3:
+				
+				break;
+			// deletar filme
+			case 4:
+				System.out.println("Insira o nome do filme qual deseja deletar: ");
+				nome = in.next();
+				filmes.removeIf(x -> nome.equals(x.getTitulo()));
 			}
-			
+			// define se o usuário vai continuar usando o programa ou não
 			System.out.println("Deseja Continuar? (s/n)");
 			escolha = in.next().charAt(0);
 	}
